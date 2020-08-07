@@ -1,0 +1,46 @@
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --thumb-w: 80px;
+  --thumb-h: 45px;
+  --thumbs-px: 10px;
+  --thumbs-py: 10px;
+  --thumbs-h: calc(var(--thumb-h) + (var(--thumbs-py) * 2));
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  transition: 1s background-color;
+
+  overflow: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  background: center center no-repeat;
+  background-size: contain;
+  color: #333;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
