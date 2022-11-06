@@ -47,11 +47,28 @@
   <script>
     const oWkey = "88642340ea796944c983a55632f5db1e";
     const unKey = "UorBPybJa_qjNzgkRZU6IyMLJ_kIk39otdYkBYz5xwU";
-    const londonLat = 51.5072;
-    const londonLong = 0.1276;
+    let lat = 51.5072;
+    let lon = 0.1276;
 
-    window.onload = async () => {
-      let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${londonLat}&lon=${londonLong}&appid=${oWkey}`);
+    window.onload = () => {
+      getImages(lat, lon);
+    }
+
+    document.querySelector("#search").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const city = document.querySelector("#search-tf").value;
+
+      if (city) {
+        let res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${oWkey}`);
+        let data = await res.json();
+
+        getImages(data[0].lat, data[0].lon);
+      }
+    });
+
+    async function getImages(lat, lon) {
+      let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${oWkey}`);
       let data = await res.json();
 
       const description = data.weather[0].description;
@@ -63,12 +80,14 @@
       console.log(images);
 
       const photo = document.querySelector("#photo");
+      photo.innerHTML = "";
       let photoImg = document.createElement("img");
       photoImg.setAttribute("src", images[0].urls.regular);
       photoImg.setAttribute("alt", description);
       photo.appendChild(photoImg);
 
       const thumbs = document.querySelector("#thumbs");
+      thumbs.innerHTML = "";
 
       for (image of images) {
         const thumbImg = document.createElement("img");
