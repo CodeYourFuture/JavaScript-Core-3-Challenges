@@ -44,6 +44,24 @@
   </main>
 
   <!-- JS goes here -->
+  <script>
+    const oWkey = "88642340ea796944c983a55632f5db1e";
+    const unKey = "UorBPybJa_qjNzgkRZU6IyMLJ_kIk39otdYkBYz5xwU";
+    const londonLat = 51.5072;
+    const londonLong = 0.1276;
+
+    window.onload = async () => {
+      let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${londonLat}&lon=${londonLong}&appid=${oWkey}`);
+      let data = await res.json();
+
+      const description = data.weather[0].description;
+
+      res = await fetch(`https://api.unsplash.com/search/photos?query=${description}&client_id=${unKey}`);
+      data = await res.json();
+
+      console.log(data);
+    }
+  </script>
 </body>
 
 </html>
