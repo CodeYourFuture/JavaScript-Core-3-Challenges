@@ -77,7 +77,11 @@
       data = await res.json();
 
       const images = data.results;
-      console.log(images);
+      // console.log(images);
+
+      const creditUser = document.querySelector("#credit-user");
+      creditUser.innerText = `${images[0].user.first_name} ${images[0].user.last_name}`;
+      creditUser.setAttribute("href", images[0].user.links.html);
 
       const photo = document.querySelector("#photo");
       photo.innerHTML = "";
@@ -99,12 +103,22 @@
         thumbImg.addEventListener("click", (e) => {
           const id = e.target.id;
 
+          const thumbs = document.querySelectorAll(".thumb");
+          for (thumb of thumbs) {
+            thumb.classList.remove("active");
+          }
+
+          e.target.classList.add("active");
+
           const searchedImage = images.find(image => image.id === id);
           photo.innerHTML = "";
           photoImg = document.createElement("img");
           photoImg.setAttribute("src", searchedImage.urls.regular);
           photoImg.setAttribute("alt", description);
           photo.appendChild(photoImg);
+
+          creditUser.innerText = `${searchedImage.user.first_name} ${searchedImage.user.last_name}`;
+          creditUser.setAttribute("href", searchedImage.user.links.html);
         });
 
         thumbs.appendChild(thumbImg);
