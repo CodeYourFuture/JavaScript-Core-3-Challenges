@@ -3,17 +3,28 @@ const searchInput = document.querySelector('#search-tf');
 const searchBtn = document.querySelector('.search__btn');
 const photoContainer = document.getElementById('photo');
 const thumbsContainer = document.getElementById('thumbs');
+const errorMsg = document.querySelector('.error');
 
 // Assign global variables
-let city = 'London';
+let city = '';
 let photoArr = [];
 
 const fetchCoordinates = async () => {
-    console.log(city);
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f86cd0cfb3e6e12fef2e08f796a5d650`;
-    const response = await fetch(url);
-    const report = await response.json();
-    getDescription(report)
+    try {
+        console.log(city);
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f86cd0cfb3e6e12fef2e08f796a5d650`;
+        const response = await fetch(url);
+        if (response.ok) {
+            errorMsg.style.display = "none";
+            const report = await response.json();
+            getDescription(report);
+          } else {
+            errorMsg.style.display = "";
+            throw new Error('Incorrect city name');
+          }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 const getDescription = (data) => {
@@ -60,7 +71,9 @@ const displaySelectedPhoto = (selectedPhoto) => {
 searchBtn.addEventListener('click', (event) => {
     event.preventDefault();
     var regex = /^[a-zA-Z ]+$/;
-    if (searchInput.value !== '' && regex.test(searchInput.value) ) {
+    if (searchInput.value !== '' 
+    && regex.test(searchInput.value)
+    && searchInput.value !== city) {
         city = searchInput.value.trim();
         fetchCoordinates();
     }

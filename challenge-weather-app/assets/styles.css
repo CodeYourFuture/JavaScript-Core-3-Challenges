@@ -162,6 +162,14 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
+.control__wrap {
+  text-align: center;
+}
+
+.control__wrap p {
+  color: red;
+}
+
 .search,
 .search__input,
 .btn {
@@ -229,7 +237,7 @@
 
   .controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .search,

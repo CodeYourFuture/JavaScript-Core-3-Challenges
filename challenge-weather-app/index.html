@@ -35,11 +35,14 @@
     <div class="thumbs" id="thumbs"></div>
 
     <div class="controls">
-      <form class="search" id="search">
-        <label class="search__label" for="search-tf">City</label>
-        <input class="search__input" id="search-tf" name="city" pattern="[a-zA-Z]+" required placeholder="Enter city name" autocomplete="on" />
-        <button class="btn search__btn">Go</button>
-      </form>
+      <div class="control__wrap">
+        <p class="error" style="display: none">Incorrect city name</p>
+        <form class="search" id="search">
+          <label class="search__label" for="search-tf">City</label>
+          <input class="search__input" id="search-tf" name="city" pattern="[a-zA-Z]+" required placeholder="Enter city name" autocomplete="on" />
+          <button class="btn search__btn">Go</button>
+        </form>
+      </div>
     </div>
   </main>
 <script src="main.js" ></script>
