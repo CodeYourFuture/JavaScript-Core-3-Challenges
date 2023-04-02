@@ -4,6 +4,7 @@ const searchBtn = document.querySelector('.search__btn');
 const photoContainer = document.getElementById('photo');
 const thumbsContainer = document.getElementById('thumbs');
 const errorMsg = document.querySelector('.error');
+const conditionInfo = document.getElementById('conditions');
 
 // Assign global variables
 let city = '';
@@ -29,6 +30,7 @@ const fetchCoordinates = async () => {
 
 const getDescription = (data) => {
     const { weather: [{ description }] } = data;
+    conditionInfo.textContent = description;
     retrievePhoto(description);
 }
 
@@ -54,7 +56,7 @@ const displayPhotos = () => {
     console.log(photoArr);
     const result = photoArr.reduce((acc, { id, urls: { thumb }}) => {
         const photo = `
-        <img id="${id}" src="${thumb}" alt="">`
+        <img class="thumb" id="${id}" src="${thumb}" alt="">`;
         return acc + photo;
     }, '')
     thumbsContainer.innerHTML = result;
@@ -65,6 +67,15 @@ const displaySelectedPhoto = (selectedPhoto) => {
     const photo = photoArr.find(({ id }) => id === selectedPhoto)
     const { urls : { regular }} = photo;
     photoContainer.innerHTML = ` <img src="${regular}" alt="">`
+}
+
+const renderActiveThumb = (activeId) => {
+    const array = document.querySelectorAll('.thumb');
+    array.forEach((elem) => {
+        if (elem.id !== activeId) {
+            elem.classList.remove('active');
+        }
+    })  
 }
 
 // List of event listeners
@@ -81,6 +92,8 @@ searchBtn.addEventListener('click', (event) => {
 
 thumbsContainer.addEventListener('click', (event) => {
     if (event.target.tagName === 'IMG') {
-       displaySelectedPhoto( event.target.id);
+        event.target.classList.add('active')
+        renderActiveThumb(event.target.id);
+       displaySelectedPhoto(event.target.id);
     }
 })
