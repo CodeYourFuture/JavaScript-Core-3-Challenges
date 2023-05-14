@@ -1,4 +1,4 @@
-.content {
+ .content {
   display: grid;
   grid-template-rows: auto 1fr auto auto auto;
 
@@ -123,12 +123,12 @@
   margin: 0 1px;
   opacity: 0;
   background: rgba(0, 0, 0, 0.5);
-}
+} 
 
 
 /* Credits
 ------------------------------------------------------------------------------*/
-.info {
+ .info {
   display: flex;
   justify-content: space-between;
 
@@ -153,11 +153,11 @@
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+} 
 
 /* Controls
 ------------------------------------------------------------------------------*/
-.controls {
+ .controls {
   padding: 5px 10px;
   background: rgba(255, 255, 255, 0.25);
 }
@@ -213,12 +213,12 @@
   text-transform: uppercase;
   background: #666;
   color: #fff;
-}
+} 
 
 /*----------------------------------------------------------------------------*/
 /* Mediaquery overrides                                                       */
 /*----------------------------------------------------------------------------*/
-@media (min-width: 768px) {
+ @media (min-width: 768px) {
   .title {
     font-weight: 100;
   }
@@ -235,5 +235,5 @@
   .search,
   .controls__btn {
     font-size: inherit;
-  }
-}
+  } 
+} 
