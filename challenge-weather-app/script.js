@@ -1,5 +1,6 @@
 //  API keys and base URLs-Code
-const weatherAPIKey = "4049c016776275cd6c7ecfb5c50961fa";
+const weatherAPIKey =
+  "4049c016776275cd6c7ecfb5c50961fa";
 const unsplashAccessKey =
   "https://api.unsplash.com/search/photos?query=snow&client_id=l9KNERJAbBOq_Uy7NjwLsd4sYA0c9ZBdWDIItQrpshY";
 const weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -93,7 +94,7 @@ searchForm.addEventListener("submit", (e) => {
     console.error("Error: Please enter a city name");
   }
   // Clear the input field after submission
-  e.target.elements.city.value = "";
+  e.target.elements.city.value = " ";
 });
 
 updateUI("London");
