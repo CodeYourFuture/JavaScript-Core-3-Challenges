@@ -43,7 +43,56 @@
     </div>
   </main>
 
-  <!-- JS goes here -->
+  <script>
+//calling fetch from openweather
+    const APIkey = "34956cbd72a572c480125b96f4273c59";
+    let cityName = "london"
+    const gallery = document.querySelector("#thumbs");
+
+    const unsplashKey = "jNgiFSfeDWCdoJaMfHl46WAnO2kVZNgF7EIVDHA6uy0"
+
+    let description;
+
+    async function apiCall () {
+      try {
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
+        let data = await response.json();
+      }
+      catch {(error => console.log(error))}
+    
+      return description = data.weather.description;
+    }
+
+    function getPhoto () {
+     return fetch(`https://api.unsplash.com/photos/?query=${description}&client_id=${unsplashKey}`)
+      .then(response => response.json())
+      .then(photos => {
+        photos.forEach(photo => {
+          // console.log(photo)
+          let imgElement = document.createElement("img");
+          imgElement.src = photo.urls.thumb;
+          gallery.appendChild(imgElement);
+             })
+            });
+    }
+
+    getPhoto();
+// - [ ] Once you've retrieved the weather data, use its `description` property to get matching images from 
+//Unsplash. You can see the documentation for image search at [https://unsplash.com/documentation#search-photos](https://unsplash.com/documentation#search-photos).
+
+// - [ ] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
+
+
+// ## Stretch goals
+
+// - [ ] Use the input field that lets us see what the weather is like in other cities
+
+// - [ ] Add a feature of your choice
+
+// - [ ] Display photographer credits in bottom right hand corner with link to their portfolio on Unsplash
+
+// - [ ] Display white border around thumbnail of image currently displayed as main image using `active` class
+  </script>
 </body>
 
 </html>

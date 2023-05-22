@@ -20,7 +20,7 @@ This app blends data from [openweathermap.org](https://openweathermap.org/) and
 
 ## Objectives
 
-- [ ] Use `fetch` to retrieve the weather for a single day. You can see the documentation at [https://openweathermap.org/current](https://openweathermap.org/current). For now, we'll set London or another location of your choice as the default.
+- [+] Use `fetch` to retrieve the weather for a single day. You can see the documentation at [https://openweathermap.org/current](https://openweathermap.org/current). For now, we'll set London or another location of your choice as the default.
 
 - [ ] Once you've retrieved the weather data, use its `description` property to get matching images from Unsplash. You can see the documentation for image search at [https://unsplash.com/documentation#search-photos](https://unsplash.com/documentation#search-photos).
 

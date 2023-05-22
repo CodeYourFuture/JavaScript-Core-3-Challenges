@@ -80,7 +80,7 @@
 ------------------------------------------------------------------------------*/
 .thumbs {
   display: flex;
-
+  justify-content: space-around;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
@@ -225,6 +225,7 @@
 
   .thumbs {
     justify-content: center;
+    
   }
 
   .controls {
