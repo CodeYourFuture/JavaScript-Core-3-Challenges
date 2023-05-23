@@ -20,6 +20,8 @@ if (saying){
     cowsay(saying)
 } else if(saying === ""){
     cowsay("Mu!")
+} else if(saying === undefined){
+    cowsay("Mu!")
 }
 
 function cowsay(saying) {
