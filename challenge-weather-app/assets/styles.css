@@ -86,7 +86,8 @@
 
   overflow-x: auto;
   overflow-y: hidden;
-  height: var(--thumbs-h);
+  height: 130px;
+  /* height: var(--thumbs-h); */
   padding: var(--thumbs-py) 0;
   background: rgba(0, 0, 0, 0.25);
 }

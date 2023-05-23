@@ -48,38 +48,44 @@
     const APIkey = "34956cbd72a572c480125b96f4273c59";
     let cityName = "london"
     const gallery = document.querySelector("#thumbs");
-
     const unsplashKey = "jNgiFSfeDWCdoJaMfHl46WAnO2kVZNgF7EIVDHA6uy0"
 
     let description;
+    let photoResults = [];
 
     async function apiCall () {
       try {
         let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
         let data = await response.json();
+        description = await data.weather[0].description;
+        return description;
       }
       catch {(error => console.log(error))}
-    
-      return description = data.weather.description;
     }
-
-    function getPhoto () {
-     return fetch(`https://api.unsplash.com/photos/?query=${description}&client_id=${unsplashKey}`)
-      .then(response => response.json())
-      .then(photos => {
-        photos.forEach(photo => {
-          // console.log(photo)
-          let imgElement = document.createElement("img");
+    
+   async function getPhoto () {
+      description = await apiCall();
+      console.log(description);
+      console.log(`https://api.unsplash.com/search/photos/?query=${description}&client_id=${unsplashKey}`)
+      try {
+        let promise = await fetch(`https://api.unsplash.com/search/photos/?query=${description}&client_id=${unsplashKey}`);
+        let photos = await promise.json();
+        console.log(photos);
+        
+        photos.results.forEach(({alt_description, urls}) => {
+            photoResults.push({alt_description, urls});
+             })
+        photoResults.forEach(photo => {
+        let imgElement = document.createElement("img");
           imgElement.src = photo.urls.thumb;
           gallery.appendChild(imgElement);
-             })
-            });
+            })}
+            catch {(error => console.log(error))}
     }
-
+    
     getPhoto();
-// - [ ] Once you've retrieved the weather data, use its `description` property to get matching images from 
-//Unsplash. You can see the documentation for image search at [https://unsplash.com/documentation#search-photos](https://unsplash.com/documentation#search-photos).
 
+    
 // - [ ] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
 
 
