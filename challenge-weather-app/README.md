@@ -20,22 +20,22 @@ This app blends data from [openweathermap.org](https://openweathermap.org/) and
 
 ## Objectives
 
-- [ ] Use `fetch` to retrieve the weather for a single day. You can see the documentation at [https://openweathermap.org/current](https://openweathermap.org/current). For now, we'll set London or another location of your choice as the default.
+- [+] Use `fetch` to retrieve the weather for a single day. You can see the documentation at [https://openweathermap.org/current](https://openweathermap.org/current). For now, we'll set London or another location of your choice as the default.
 
-- [ ] Once you've retrieved the weather data, use its `description` property to get matching images from Unsplash. You can see the documentation for image search at [https://unsplash.com/documentation#search-photos](https://unsplash.com/documentation#search-photos).
+- [+] Once you've retrieved the weather data, use its `description` property to get matching images from Unsplash. You can see the documentation for image search at [https://unsplash.com/documentation#search-photos](https://unsplash.com/documentation#search-photos).
 
-- [ ] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
+- [+] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
 
-- [ ] Commit code regularly, push and create a pull request so we can see how you got on
+- [+] Commit code regularly, push and create a pull request so we can see how you got on
 
 ## Stretch goals
 
-- [ ] Use the input field that lets us see what the weather is like in other cities
+- [+] Use the input field that lets us see what the weather is like in other cities
 
 - [ ] Add a feature of your choice
 
-- [ ] Display photographer credits in bottom right hand corner with link to their portfolio on Unsplash
+- [+] Display photographer credits in bottom right hand corner with link to their portfolio on Unsplash
 
-- [ ] Display white border around thumbnail of image currently displayed as main image using `active` class
+- [+] Display white border around thumbnail of image currently displayed as main image using `active` class
 
 You may need to use data attributes as part of the exercise. You can see more info about them at [https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).

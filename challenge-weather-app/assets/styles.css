@@ -42,7 +42,7 @@
 }
 
 .photo::before {
-  content: "loading";
+  /* content: "loading"; */
 
   display: grid;
   justify-content: center;
@@ -80,7 +80,7 @@
 ------------------------------------------------------------------------------*/
 .thumbs {
   display: flex;
-
+  justify-content: space-around;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
@@ -107,6 +107,13 @@
 .thumb:hover,
 .thumb:focus {
   outline: 1px solid white;
+  width: calc(var(--thumb-w)*1.2);
+  height: calc(var(--thumb-h)*1.2);
+  
+}
+
+.active {
+  outline: 3px solid green;
 }
 
 .thumb {
@@ -225,6 +232,7 @@
 
   .thumbs {
     justify-content: center;
+    
   }
 
   .controls {
