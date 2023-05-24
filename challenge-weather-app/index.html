@@ -58,19 +58,20 @@
         let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
         let data = await response.json();
         description = await data.weather[0].description;
+        document.querySelector(".photo").textContent = description;
         return description;
       }
       catch {(error => console.log(error))}
     }
-    
+    //calling fetch from unsplash
    async function getPhoto () {
       description = await apiCall();
       console.log(description);
-      console.log(`https://api.unsplash.com/search/photos/?query=${description}&client_id=${unsplashKey}`)
+      
       try {
         let promise = await fetch(`https://api.unsplash.com/search/photos/?query=${description}&client_id=${unsplashKey}`);
         let photos = await promise.json();
-        console.log(photos);
+        
         
         photos.results.forEach(({alt_description, urls}) => {
             photoResults.push({alt_description, urls});
@@ -78,16 +79,29 @@
         photoResults.forEach(photo => {
         let imgElement = document.createElement("img");
           imgElement.src = photo.urls.thumb;
+          imgElement.alt = photo.alt_description;
+          imgElement.className = "thumb";
           gallery.appendChild(imgElement);
+          
             })}
             catch {(error => console.log(error))}
     }
     
     getPhoto();
 
-    
-// - [ ] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
+    gallery.addEventListener("click", (event) => {
+           
+        let chosenPhoto = photoResults.find(photo => photo.alt_description === event.target.alt);
+        
+        let mainImg = document.createElement("img");
+      mainImg.src = chosenPhoto.urls.regular;
+      mainImg.alt = chosenPhoto.alt_description;
+      document.querySelector("#photo").innerHTML = "";
+      document.querySelector("#photo").appendChild(mainImg);
+      
+    })
 
+       
 
 // ## Stretch goals
 

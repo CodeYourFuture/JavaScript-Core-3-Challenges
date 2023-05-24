@@ -24,9 +24,9 @@ This app blends data from [openweathermap.org](https://openweathermap.org/) and
 
 - [+] Once you've retrieved the weather data, use its `description` property to get matching images from Unsplash. You can see the documentation for image search at [https://unsplash.com/documentation#search-photos](https://unsplash.com/documentation#search-photos).
 
-- [ ] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
+- [+] Display the images as a gallery of clickable thumbnails (clicking loads the main image)
 
-- [ ] Commit code regularly, push and create a pull request so we can see how you got on
+- [+] Commit code regularly, push and create a pull request so we can see how you got on
 
 ## Stretch goals
 
