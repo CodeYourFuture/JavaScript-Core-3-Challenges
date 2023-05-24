@@ -34,7 +34,7 @@ This app blends data from [openweathermap.org](https://openweathermap.org/) and
 
 - [ ] Add a feature of your choice
 
-- [ ] Display photographer credits in bottom right hand corner with link to their portfolio on Unsplash
+- [+] Display photographer credits in bottom right hand corner with link to their portfolio on Unsplash
 
 - [+] Display white border around thumbnail of image currently displayed as main image using `active` class
 

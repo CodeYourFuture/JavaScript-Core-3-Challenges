@@ -74,15 +74,16 @@
       try {
         let promise = await fetch(`https://api.unsplash.com/search/photos/?query=${description}&client_id=${unsplashKey}`);
         let photos = await promise.json();
+        console.log(photos);
         
-        
-        photos.results.forEach(({alt_description, urls}) => {
-            photoResults.push({alt_description, urls});
+        photos.results.forEach(({alt_description, urls, user}) => {
+            photoResults.push({alt_description, urls, user});
              })
         photoResults.forEach(photo => {
         let imgElement = document.createElement("img");
           imgElement.src = photo.urls.thumb;
           imgElement.alt = photo.alt_description;
+          
           imgElement.className = "thumb";
           gallery.appendChild(imgElement);
           
@@ -100,6 +101,7 @@
       mainImg.src = chosenPhoto.urls.regular;
       mainImg.className = "active";
       mainImg.alt = chosenPhoto.alt_description;
+      document.querySelector("#credit-user").innerText = chosenPhoto.user.first_name;
       document.querySelector("#photo").innerHTML = "";
       document.querySelector("#photo").appendChild(mainImg);
       
