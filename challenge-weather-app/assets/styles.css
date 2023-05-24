@@ -112,6 +112,10 @@
   
 }
 
+.active {
+  outline: 3px solid green;
+}
+
 .thumb {
   animation: 0.25s forwards fade-in;
 

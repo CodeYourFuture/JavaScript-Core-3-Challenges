@@ -37,8 +37,8 @@
     <div class="controls">
       <form class="search" id="search">
         <label class="search__label" for="search-tf">City</label>
-        <input class="search__input" id="search-tf" name="city" placeholder="Enter city name" autocomplete="city" />
-        <button class="btn search__btn">Go</button>
+        <input class="search__input" id="search-tf" name="city" placeholder="Enter city name" autocomplete="london" />
+        <button type="submit" class="btn search__btn">Go</button>
       </form>
     </div>
   </main>
@@ -46,9 +46,11 @@
   <script>
 //calling fetch from openweather
     const APIkey = "34956cbd72a572c480125b96f4273c59";
-    let cityName = "london"
+    let cityName = "london";
     const gallery = document.querySelector("#thumbs");
-    const unsplashKey = "jNgiFSfeDWCdoJaMfHl46WAnO2kVZNgF7EIVDHA6uy0"
+    const unsplashKey = "jNgiFSfeDWCdoJaMfHl46WAnO2kVZNgF7EIVDHA6uy0";
+    const searchInput = document.querySelector("#search-tf");
+    const goBtn = document.querySelector("button");
 
     let description;
     let photoResults = [];
@@ -57,6 +59,7 @@
       try {
         let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
         let data = await response.json();
+        console.log(data);
         description = await data.weather[0].description;
         document.querySelector(".photo").textContent = description;
         return description;
@@ -95,13 +98,19 @@
         
         let mainImg = document.createElement("img");
       mainImg.src = chosenPhoto.urls.regular;
+      mainImg.className = "active";
       mainImg.alt = chosenPhoto.alt_description;
       document.querySelector("#photo").innerHTML = "";
       document.querySelector("#photo").appendChild(mainImg);
       
     })
 
-       
+       goBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        cityName = searchInput.value;
+        gallery.innerHTML = "";
+        getPhoto();
+       } )
 
 // ## Stretch goals
 
