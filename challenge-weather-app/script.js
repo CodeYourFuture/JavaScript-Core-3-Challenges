@@ -69,11 +69,15 @@ thumbs.addEventListener("click", displayBigPhoto)
 
 function displayBigPhoto(event) {
   if (event.target.nodeName.toLowerCase() == "img") {
+
     let bigPhotoContainer = document.querySelector("#photo")
     bigPhotoContainer.innerHTML = ""
     let bigPhoto = document.createElement("img")
     let url = event.target.src
     bigPhoto.src = url
+    let photoLink = document.querySelector("#credit-user")
+    photoLink.href = url
+    photoLink.innerText = " Image Link"
     bigPhotoContainer.appendChild(bigPhoto)
   }
 }
@@ -103,6 +107,9 @@ function displayCarrentWether(info) {
 
   conditionsP.innerHTML = `Overcast - ${weather[0].description}`
 }
+
+
+// my carrent location
 
   // navigator.geolocation.getCurrentPosition((success) => {
   //   console.log("ok", success)
