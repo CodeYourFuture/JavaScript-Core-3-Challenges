@@ -58,18 +58,20 @@ function displayThePhotosinThumb(array) {
   thumbs.innerHTML = ""
   for (let elemet of array) {
     photo = document.createElement("img")
+    photo.className = "thumb"
     let url = elemet.urls.full
     photo.src = url
     thumbs.appendChild(photo)
+
   }
 
 
 }
 thumbs.addEventListener("click", displayBigPhoto)
 
-function displayBigPhoto(event) {
-  if (event.target.nodeName.toLowerCase() == "img") {
+function displayBigPhoto(event, url2) {
 
+  if (event.target.nodeName.toLowerCase() == "img") {
     let bigPhotoContainer = document.querySelector("#photo")
     bigPhotoContainer.innerHTML = ""
     let bigPhoto = document.createElement("img")
