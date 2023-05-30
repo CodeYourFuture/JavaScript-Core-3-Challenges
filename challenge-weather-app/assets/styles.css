@@ -20,12 +20,12 @@
   letter-spacing: 3px;
 }
 
-.title > i {
+.title>i {
   float: left;
   font-style: inherit;
 }
 
-.title > i:last-child {
+.title>i:last-child {
   color: lightblue;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .photo__dummy,
-.photo > img {
+.photo>img {
   animation: 0.5s forwards fade-in;
 
   display: block;
@@ -141,11 +141,11 @@
   margin: 0;
 }
 
-.info__item > span {
+.info__item>span {
   color: #aaa;
 }
 
-.info__item > a:hover {
+.info__item>a:hover {
   text-decoration: underline;
 }
 

@@ -12,11 +12,31 @@
 
 let topLine = '_';
 let bottomLine = '-';
-let saying = '';
+let saying = process.argv[2];
+
 
 // 3. Make a cow that takes a string
+if (saying){
+    cowsay(saying)
+} else if(saying === ""){
+    cowsay("Mu!")
+} else if(saying === undefined){
+    cowsay("Mu!")
+}
 
 function cowsay(saying) {
+    console.log(`        ${topLine.repeat(saying.length)}`)
+    console.log(`       |${saying}|`)
+    console.log(`        ${bottomLine.repeat(saying.length)}`)
+    console.log(`       /`)
+    console.log(`      /`)
+    console.log(`^__^ /`)
+    console.log(`(oo)'_______`)
+    console.log(`(__)        )-~`)
+    console.log(`   ||----w |`)
+    console.log(`   ||     ||   `)
+    console.log("```")
+    
 // how will you make the speech bubble contain the text?
 
 // where will the cow picture go?
@@ -24,6 +44,8 @@ function cowsay(saying) {
 // how will you account for the parameter being empty?
 
 }
+
+
 
 //4. Pipe argument into cowsay function and return a cow
 
