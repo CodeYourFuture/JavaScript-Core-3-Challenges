@@ -15,20 +15,18 @@ function setHeroImage() {
     });
 }
 function displayResults(json) {
+  let mainImage = document.getElementById("mainImage");
+  mainImage.src = json.results[0].urls.regular;
   json.results.forEach((result) => {
     const url = result.urls.small;
     const urlRegular = result.urls.regular;
     const unsplashLink = result.links.html;
     const photographer = result.user.name;
     const photographerPage = result.user.links.html;
-    console.log(url);
-    console.log(unsplashLink);
-    console.log(photographer);
-    console.log(photographerPage);
+
     let anImage = document.createElement("img");
     anImage.src = url;
     anImage.addEventListener("click", () => {
-      let mainImage = document.getElementById("mainImage");
       mainImage.src = urlRegular;
     });
     let thumbsArea = document.getElementById("thumbs");
@@ -49,7 +47,6 @@ async function searchUnsplash(searchQuery) {
 async function fetchResults(searchQuery) {
   try {
     const results = await searchUnsplash(searchQuery);
-    console.log(results);
     displayResults(results);
   } catch (err) {
     console.log(err);
