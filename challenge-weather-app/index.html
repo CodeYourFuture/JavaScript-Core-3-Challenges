@@ -39,7 +39,7 @@
     <div class="controls">
       <form class="search" id="search">
         <label class="search__label" for="search-tf">City</label>
-        <input class="search__input" id="search-tf" name="city" placeholder="Enter city name" autocomplete="city" />
+        <input class="search__input" id="search-tf" name="city" placeholder="Enter city name" autocomplete="off" />
         <button  type = "button" class="btn search__btn">Go</button>
       </form>
     </div>
@@ -51,6 +51,8 @@
   const inputValue = document.querySelector(".search__input");
   const button = document.querySelector(".search__btn");
   const photo = document.getElementById("photo");
+  const thumbs = document.querySelector(".thumbs");
+  const image = document.getElementById("photo");
 
   button.addEventListener("click", function(){
   fetch(`http://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&units=metric&appid=573c7cb004f7a0e53b5e11124182b081`)
@@ -66,7 +68,7 @@
 });
 
 const display = (weather)=>{
-  temp.innerText = `${weather.main.temp}°C`
+  temp.innerText = `${Math.floor(weather.main.temp)}°C`
   desc.innerText = `${weather.weather[0].description}`
 }
 
@@ -84,6 +86,9 @@ fetch("https://api.unsplash.com/search/photos?query=snow&client_id=S3hiWtfhliRCs
   });
 })
 
+const displayImg = (photo) =>{
+  image.src = `${photo.urls}`
+}
   </script>
 </body>
 
