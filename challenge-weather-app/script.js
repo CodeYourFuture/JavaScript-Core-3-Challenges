@@ -1,3 +1,10 @@
+import { getAPIKey } from "./utils.js";
+
+const EdinburghLatitude = 55.953251;
+const EdinburghLongitude = -3.188267;
+const weatherAPIKey = getAPIKey("weather");
+const unsplashAPIKey = getAPIKey("unsplash");
+
 function setHeroImage() {
   const photoArea = document.getElementById("photo");
   const mainImage = document.createElement("img");
@@ -5,7 +12,7 @@ function setHeroImage() {
   photoArea.appendChild(mainImage);
 
   fetch(
-    "https://api.unsplash.com/photos/pbxwxwfI0B4/?client_id=QY3ab4KjY2XgLlZGevIgfkFPNWlEk_TWt7k0v3qgROs"
+    `https://api.unsplash.com/photos/pbxwxwfI0B4/?client_id=${unsplashAPIKey}`
   )
     .then((res) => {
       return res.json();
@@ -35,7 +42,7 @@ function displayResults(json) {
 }
 
 async function searchUnsplash(searchQuery) {
-  const endpoint = `https://api.unsplash.com/search/photos?query=${searchQuery}&count=5&orientation=landscape&client_id=QY3ab4KjY2XgLlZGevIgfkFPNWlEk_TWt7k0v3qgROs`;
+  const endpoint = `https://api.unsplash.com/search/photos?query=${searchQuery}&count=5&orientation=landscape&client_id=${unsplashAPIKey}`;
   const response = await fetch(endpoint);
   if (!response.ok) {
     throw Error(response.statusText);
@@ -56,7 +63,7 @@ async function fetchResults(searchQuery) {
 
 function getWeatherForCity(lat, long) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=a8fea833184034bc13063a6d1cd01bad`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${weatherAPIKey}`
   )
     .then((res) => {
       return res.json();
@@ -71,6 +78,4 @@ function getWeatherForCity(lat, long) {
 
 setHeroImage();
 
-const EdinburghLatitude = 55.953251;
-const EdinburghLongitude = -3.188267;
 getWeatherForCity(EdinburghLatitude, EdinburghLongitude);
