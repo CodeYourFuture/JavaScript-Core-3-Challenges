@@ -42,6 +42,7 @@ const readline = require('readline');               // "readline" module provide
 const resultLine = readline.createInterface({
   input: process.stdin,                      // the create interface for readline input(stdin) & output(stdout) mean. it will read input form terminal (stdin) and write output to terminal ("stdout");
   output:process.stdout
+  
 });
 
 resultLine.question('The cow say? ', (saying) => {      // this line prompts the user with the question in terminal and pass the argument as a callback function(saying) 

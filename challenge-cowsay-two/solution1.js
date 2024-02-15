@@ -22,6 +22,7 @@ function cowSay(saying) {
 let speechBubble = `${saying}`;
 
 // where will the cow picture go?
+
 let cowPicture = 
 `
        /
