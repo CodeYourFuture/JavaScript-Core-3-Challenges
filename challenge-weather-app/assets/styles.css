@@ -80,7 +80,7 @@
 ------------------------------------------------------------------------------*/
 .thumbs {
   display: flex;
-
+  gap: 10px;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
@@ -106,7 +106,7 @@
 .thumb.active,
 .thumb:hover,
 .thumb:focus {
-  outline: 1px solid white;
+  outline: 3px solid black;
 }
 
 .thumb {
@@ -124,7 +124,6 @@
   opacity: 0;
   background: rgba(0, 0, 0, 0.5);
 }
-
 
 /* Credits
 ------------------------------------------------------------------------------*/
