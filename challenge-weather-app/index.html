@@ -58,7 +58,7 @@
       });
 
       function getFetchCity(input, key) {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${input}&APPID=${key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&APPID=${key}`)
           .then((response) => response.json())
           .then((data) =>
             data.weather[0].description ? getFetchPhoto(data.weather[0].description) : console.log("no city")
