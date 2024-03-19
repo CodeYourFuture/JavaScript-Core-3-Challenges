@@ -49,6 +49,7 @@ const fetchAndDisplayImages = async (city) => {
 
     if (images.length > 0) {
       displayThumbnails(images);
+      setMainImage(images[3].urls.regular)// index 3
     } else {
       console.error("No weather images");
     }
