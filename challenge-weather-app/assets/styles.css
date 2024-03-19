@@ -38,7 +38,7 @@
 
   overflow: hidden;
   position: relative;
-  margin: 20px 0;
+  margin: 20px;
 }
 
 .photo::before {
@@ -83,19 +83,18 @@
 
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-
   overflow-x: auto;
   overflow-y: hidden;
-  height: var(--thumbs-h);
   padding: var(--thumbs-py) 0;
   background: rgba(0, 0, 0, 0.25);
+  gap: 10px;
+  height: calc(var(--thumbs-h) * 1.5);
+  width: auto;
 }
 
 .thumbs__link {
   flex: 0 0 auto;
-
   animation: 0.25s forwards fade-in;
-
   width: var(--thumb-w);
   height: var(--thumb-h);
   margin: 0 1px;
@@ -115,16 +114,13 @@
   display: block;
   opacity: 0;
   object-fit: cover;
-
+  width: 100%;
   flex: 0 0 auto;
-
-  width: var(--thumb-w);
-  height: var(--thumb-h);
+  gap: 5px;
   margin: 0 1px;
   opacity: 0;
   background: rgba(0, 0, 0, 0.5);
 }
-
 
 /* Credits
 ------------------------------------------------------------------------------*/
@@ -160,6 +156,8 @@
 .controls {
   padding: 5px 10px;
   background: rgba(255, 255, 255, 0.25);
+  margin: 20px;
+
 }
 
 .search,
@@ -173,6 +171,14 @@
   font: inherit;
   background: #fff;
 }
+.search__label,
+.search__input,
+.search__btn {
+  font-size: 14px; /* Tüm form elemanlarının yazı boyutunu büyütür */
+  /* İhtiyacınıza göre diğer özellikler ekleyebilirsiniz */
+}
+
+
 
 .btn {
   text-align: center;

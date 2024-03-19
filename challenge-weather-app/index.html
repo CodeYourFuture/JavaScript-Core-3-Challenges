@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meteoropolis</title>
+    <link rel="stylesheet" href="assets/globals.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
 
-  <title>Meteoropolis</title>
-  <link rel="stylesheet" href="assets/globals.css">
-  <link rel="stylesheet" href="assets/styles.css">
-</head>
+  <body>
+    <!-- Structure -->
+    <main class="content">
+      <header class="header">
+        <h1 class="title">
+          <i>Meteor</i>
+          <i>opolis</i>
+        </h1>
+      </header>
 
-<body>
-  <!-- Structure -->
-  <main class="content">
-    <header class="header">
-      <h1 class="title">
-        <i>Meteor</i>
-        <i>opolis</i>
-      </h1>
-    </header>
+      <figure class="photo" id="photo"></figure>
 
-    <figure class="photo" id="photo"></figure>
+      <div class="info">
+        <p class="info__item info__item--conditions" id="conditions"></p>
+        <p class="info__item info__item--credits">
+          <a href="#" id="credit-user"></a>
+          <span>on</span>
+          <a href="#" id="credit-platform">Unsplash</a>
+        </p>
+      </div>
 
-    <div class="info">
-      <p class="info__item info__item--conditions" id="conditions"></p>
-      <p class="info__item info__item--credits">
-        <a href="#" id="credit-user"></a>
-        <span>on</span>
-        <a href="#" id="credit-platform">Unsplash</a>
-      </p>
-    </div>
+      <div class="thumbs" id="thumbs"></div>
 
-    <div class="thumbs" id="thumbs"></div>
+      <div class="controls">
+        <form class="search" id="search">
+          <label class="search__label" for="search-tf">City</label>
+          <input
+            class="search__input"
+            id="search-tf"
+            name="city"
+            placeholder="Enter city name"
+            autocomplete="city"
+          />
+          <button class="btn search__btn">Go</button>
+        </form>
+      </div>
+    </main>
 
-    <div class="controls">
-      <form class="search" id="search">
-        <label class="search__label" for="search-tf">City</label>
-        <input class="search__input" id="search-tf" name="city" placeholder="Enter city name" autocomplete="city" />
-        <button class="btn search__btn">Go</button>
-      </form>
-    </div>
-  </main>
-
-  <!-- JS goes here -->
-</body>
-
+    <!-- JS goes here -->
+    <script src="script.js"></script>
+  </body>
 </html>

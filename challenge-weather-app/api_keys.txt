@@ -1,0 +1,2 @@
+OpenWeather API Key: 6d0fbc92848b733471a1093b6ce30a2a
+Unsplash Access Key: ZN0G43FIimsZIYP8Duic-99-R8mkuVHJUSr9mVtThJY
